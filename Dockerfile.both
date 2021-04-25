@@ -1,5 +1,5 @@
 # FROM mcr.microsoft.com/azure-functions/python:3.0-python3.8-appservice
-FROM python:3.8-slim-buster as gha/base
+FROM python:3.8-slim-buster as base
 
 RUN pip install --upgrade pip
 
@@ -7,7 +7,7 @@ ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
-FROM gha/base
+FROM base
 
 COPY --from=gha/base /opt/venv/ /opt/venv/
 
