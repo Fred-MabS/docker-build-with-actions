@@ -10,3 +10,4 @@ then
 else
     echo "This is NOT"
 fi
+env
