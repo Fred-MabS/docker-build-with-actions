@@ -18,9 +18,9 @@ jobs:
 
       - uses: docker/login-action@v1
         with:
-          registry: ${{ secrets.REGISTRY_URL }}
-          username: ${{ secrets.REGISTRY_LOGIN }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GH_TOKEN }}
 
       - name: Log
         run: source run.sh ${{ secrets.SECRET_VAR1 }}
