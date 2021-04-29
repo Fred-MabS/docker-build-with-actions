@@ -1,5 +1,5 @@
-FROM ghcr.io/fred-mabs/gha-base
+FROM ghcr.io/fred-mabs/gha-base as base
 
-COPY --from=gha/base /opt/venv/ /opt/venv/
+COPY --from=base /opt/venv/ /opt/venv/
 
 ENTRYPOINT [ "/bin/bash" ]
