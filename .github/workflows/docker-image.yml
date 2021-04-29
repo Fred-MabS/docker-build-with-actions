@@ -40,7 +40,7 @@ jobs:
           # builder: ${{ steps.buildx.outputs.name }}
           context: .
           file: ./Dockerfile.base
-          tags: ghcr.io/Fred-MabS/gha-base:latest
+          tags: ghcr.io/docker-build-with-actions/gha-base:latest
           push: true
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
@@ -49,7 +49,7 @@ jobs:
           # builder: ${{ steps.buildx.outputs.name }}
           context: .
           file: ./Dockerfile.runner
-          tags: ghcr.io/Fred-MabS/gha-runner:latest
+          tags: ghcr.io/docker-build-with-actions/gha-runner:latest
           push: true
       # - name: Build the Docker image
       #   run: docker build . --file Dockerfile.both --tag gha/both
