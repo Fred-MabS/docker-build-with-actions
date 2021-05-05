@@ -9,7 +9,7 @@ INPUTIMAGE=$5
 echo $CR_PAT | docker login ghcr.io -u $USERNAME --password-stdin
 
 if [ -n "$INPUTIMAGE" ]; then
-    docker pull $INPUTIMAGE
+    docker pull ghcr.io/fred-mabs/$INPUTIMAGE
 fi
 
 docker build -f $DOCKERFILE -t $OUTPUTIMAGE .
