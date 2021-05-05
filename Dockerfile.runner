@@ -1,5 +1,7 @@
 FROM gha-base as base
 
+
+FROM python:3.8-slim-buster
 COPY --from=base /opt/venv/ /opt/venv/
 
 ENTRYPOINT [ "/bin/bash" ]
