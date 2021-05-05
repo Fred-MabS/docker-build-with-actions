@@ -1,4 +1,4 @@
-FROM ghcr.io/fred-mabs/gha-base as base
+FROM gha-base as base
 
 COPY --from=base /opt/venv/ /opt/venv/
 
