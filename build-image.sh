@@ -10,4 +10,3 @@ fi
 
 docker build -f $DOCKERFILE -t $OUTPUTIMAGE .
 docker push ghcr.io/fred-mabs/$OUTPUTIMAGE
-docker push $OUTPUTIMAGE
