@@ -1,0 +1,55 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.CR_PAT }}
+
+      # - name: Log
+      #   run: source build.sh ${{ secrets.SECRET_VAR1 }}
+      # # This is the a separate action that sets up buildx runner
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      # # So now you can use Actions' own caching!
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx
+          restore-keys: |
+            ${{ runner.os }}-buildx
+      - uses: docker/build-push-action@v2
+        with:
+          # builder: ${{ steps.buildx.outputs.name }}
+          context: .
+          file: ./Dockerfile.base
+          tags: ghcr.io/fred-mabs/gha-base:latest
+          push: true
+          cache-from: type=local,src=/tmp/.buildx-cache
+          cache-to: type=local,dest=/tmp/.buildx-cache
+      - uses: docker/build-push-action@v2
+        with:
+          # builder: ${{ steps.buildx.outputs.name }}
+          context: .
+          file: ./Dockerfile.runner
+          tags: ghcr.io/fred-mabs/gha-runner:latest
+          push: true
+      # - name: Build the Docker image
+      #   run: docker build . --file Dockerfile.both --tag gha/both
