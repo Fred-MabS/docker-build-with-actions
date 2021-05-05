@@ -13,4 +13,5 @@ if [ -n "$INPUTIMAGE" ]; then
 fi
 
 docker build -f $DOCKERFILE -t $OUTPUTIMAGE .
+docker tag $OUTPUTIMAGE ghcr.io/fred-mabs/$OUTPUTIMAGE
 docker push ghcr.io/fred-mabs/$OUTPUTIMAGE
