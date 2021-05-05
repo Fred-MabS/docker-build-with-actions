@@ -1,10 +1,14 @@
 #!/bin/bash
 
-DOCKERFILE=$1
-OUTPUTIMAGE=$2
-INPUTIMAGE=$3
+USERNAME=$1
+CR_PAT=$2
+DOCKERFILE=$3
+OUTPUTIMAGE=$4
+INPUTIMAGE=$5
 
-if [ -n "$3" ]; then
+echo $CR_PAT | docker login ghcr.io -u $USERNAME --password-stdin
+
+if [ -n "$INPUTIMAGE" ]; then
     docker pull $INPUTIMAGE
 fi
 
