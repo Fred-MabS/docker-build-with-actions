@@ -11,6 +11,7 @@ on:
         description: 'useless quiestion'
         required: true
         default: 'yes'
+  workflow_dispatch:
 
 jobs:
 
