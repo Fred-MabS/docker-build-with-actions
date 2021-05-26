@@ -13,5 +13,8 @@ if [ -n "$INPUTIMAGE" ]; then
 fi
 
 docker build -f $DOCKERFILE -t $OUTPUTIMAGE .
+docker images $OUTPUTIMAGE
+docker run -it --rm -v /var/run/docker.sock:/var/run/docker.sock dslim/docker-slim build $OUTPUTIMAGE
 docker tag $OUTPUTIMAGE ghcr.io/fred-mabs/$OUTPUTIMAGE
 docker push ghcr.io/fred-mabs/$OUTPUTIMAGE
+docker images $OUTPUTIMAGE
