@@ -3,7 +3,7 @@ name: Run Pytest
 on: [push]
 
 jobs:
-  manual-docker:
+  test  :
     runs-on: ubuntu-latest
 
     steps:
