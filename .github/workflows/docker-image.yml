@@ -1,17 +1,6 @@
 name: Docker Image CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-  workflow_dispatch:
-    inputs:
-      simulate:
-        description: 'useless quiestion'
-        required: true
-        default: 'yes'
-  workflow_dispatch:
+on: [push]
 
 jobs:
 
