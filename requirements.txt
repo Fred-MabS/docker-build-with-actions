@@ -1,0 +1,5 @@
+attrs==21.1.0
+jsonschema==3.2.0
+pathlib==1.0.1
+pyrsistent==0.17.3
+six==1.16.0
