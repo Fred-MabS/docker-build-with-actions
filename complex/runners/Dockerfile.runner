@@ -1,0 +1,11 @@
+FROM --platform=linux/amd64 builder/tool1 AS tool1
+FROM --platform=linux/amd64 builder/tool2 AS tool2
+
+FROM --platform=linux/amd64 alpine
+
+COPY --from=tool1 /app /app/
+COPY --from=tool2 /app /app/
+
+RUN touch /app/runner
+
+#ENTRYPOINT [ "/bin/ls -l /app" ]

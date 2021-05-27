@@ -1,0 +1,4 @@
+FROM --platform=linux/amd64 alpine
+
+RUN mkdir /app/ \
+    && touch /app/base-image
