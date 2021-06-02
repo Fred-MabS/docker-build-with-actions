@@ -1,12 +1,27 @@
 name: Run Unit tests
 
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      push_images:
+        description: 'Push to registry (yes/no)'
+        required: true
+        default: 'no'
+  push:
 
 jobs:
   unittest:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Test workflow
+        run: |
+          if [ ${{ github.event.inputs.push_images }} == 'no' ]
+          then
+            echo 'this is a no'
+          else
+            echo 'this is a yes'
+          fi
       - uses: actions/checkout@v2
       - name: Install dependencies
         run: |

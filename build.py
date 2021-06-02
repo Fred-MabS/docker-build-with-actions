@@ -106,3 +106,4 @@ if __name__ == '__main__':
     arguments = docopt(__doc__)
     arguments = getCompleteArguments(arguments)
     build(arguments)
+    print 'yes'
