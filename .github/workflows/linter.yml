@@ -55,6 +55,7 @@ jobs:
           DEFAULT_BRANCH: main
           SUPPRESS_POSSUM: true
           VALIDATE_PYTHON_PYLINT: true
+          PYTHON_PYLINT_CONFIG_FILE: .pylintrc
           VALIDATE_DOCKERFILE: true
           VALIDATE_MARKDOWN: true
           VALIDATE_YAML: true
