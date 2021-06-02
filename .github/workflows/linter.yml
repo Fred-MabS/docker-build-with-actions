@@ -49,14 +49,15 @@ jobs:
       ################################
       - name: Lint Code Base
         # uses: github/super-linter@v4
-        uses: docker://ghcr.io/github/super-linter:slim-v4
+        uses: nvuillam/mega-linter@v4
         env:
           VALIDATE_ALL_CODEBASE: false
-          # DEFAULT_BRANCH: main
+          DEFAULT_BRANCH: main
+          LINTER_RULES_PATH: "."
           SUPPRESS_POSSUM: true
           VALIDATE_PYTHON_PYLINT: true
-          # PYTHON_PYLINT_CONFIG_FILE: .pylintrc
+          PYTHON_PYLINT_CONFIG_FILE: .pylintrc
           VALIDATE_DOCKERFILE: true
           VALIDATE_MARKDOWN: true
           VALIDATE_YAML: true
-          # GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
