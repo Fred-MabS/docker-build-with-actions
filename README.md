@@ -11,7 +11,7 @@
 
 [![GitHub Super-Linter](https://github.com/Fred-MabS/docker-build-with-actions/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
 
-
+[![Mega-Linter](https://github.com/Fred-MabS/docker-build-with-actions/workflows/Mega-Linter/badge.svg?branch=master)](https://github.com/marketplace/actions/mega-linter)
 
 ## purge workflow runs
 
