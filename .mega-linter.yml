@@ -1,0 +1,9 @@
+ENABLE:
+  - CPP
+  - DOCKERFILE
+  - MARKDOWN
+  - PYTHON
+  - YAML
+EXCLUDED_DIRECTORIES:
+  - .venv
+  - .git
