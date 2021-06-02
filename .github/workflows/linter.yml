@@ -51,4 +51,5 @@ jobs:
         # uses: github/super-linter@v4
         uses: nvuillam/mega-linter@v4
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PRINT_ALPACA: false
