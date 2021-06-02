@@ -1,4 +1,4 @@
-name: Run Quality tests
+name: Run Unit tests
 
 on: [push]
 
