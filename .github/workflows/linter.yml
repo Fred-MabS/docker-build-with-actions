@@ -1,19 +1,8 @@
 ---
-###########################
-###########################
-## Linter GitHub Actions ##
-###########################
-###########################
-name: Lint Code Base
 
-#
-# Documentation:
-# https://help.github.com/en/articles/workflow-syntax-for-github-actions
-#
+# this name is required for the badge to work correctly
+name: Mega-Linter
 
-#############################
-# Start the job on all push #
-#############################
 on:
   push:
     branches-ignore: [master]
@@ -21,9 +10,6 @@ on:
   pull_request:
     branches: [master]
 
-###############
-# Set the Job #
-###############
 jobs:
   lint:
     # Name the Job
@@ -31,25 +17,25 @@ jobs:
     # Set the agent to run on
     runs-on: ubuntu-latest
 
-    ##################
-    # Load all steps #
-    ##################
     steps:
-      ##########################
-      # Checkout the code base #
-      ##########################
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
           # Full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
 
-      ################################
-      # Run Linter against code base #
-      ################################
       - name: Lint Code Base
-        # uses: github/super-linter@v4
         uses: nvuillam/mega-linter@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PRINT_ALPACA: false
+
+      # Upload Mega-Linter artifacts
+      - name: Archive production artifacts
+        if: ${{ success() }} || ${{ failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: Mega-Linter reports
+          path: |
+            report
+            mega-linter.log
