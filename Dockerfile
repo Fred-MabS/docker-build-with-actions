@@ -1,0 +1,7 @@
+# FROM mcr.microsoft.com/azure-functions/python:3.0-python3.8-appservice
+FROM python:3.8-slim-buster
+
+ENV VIRTUAL_ENV=/opt/venv
+RUN python3 -m venv $VIRTUAL_ENV
+ENV PATH="$VIRTUAL_ENV/bin:$PATH"
+

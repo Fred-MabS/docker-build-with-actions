@@ -131,3 +131,6 @@ dmypy.json
 report/
 
 *.SAVE
+
+__blobstorage/
+__azurite*

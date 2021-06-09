@@ -14,6 +14,10 @@
 
 ![Mega-Linter](https://github.com/Fred-MabS/docker-build-with-actions/workflows/Mega-Linter/badge.svg)](https://github.com/marketplace/actions/mega-linter)
 
+shield.io badge
+
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/fred-mabs/docker-build-with-actions/Mega-Linter?label=lint)
+
 ## purge workflow runs
 
 First `gh auth login`
