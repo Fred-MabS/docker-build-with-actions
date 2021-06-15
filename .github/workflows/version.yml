@@ -21,4 +21,4 @@ jobs:
       - name: Test with input
         uses: actions/hello-world-docker-action@master
         with:
-          who-to-greet: Version ${{ Òsteps.tag.outputs.tag }} ${{ steps.date.outputs.date }}
+          who-to-greet: Version ${{ steps.tag.outputs.tag }} ${{ steps.date.outputs.date }}
