@@ -17,7 +17,7 @@ jobs:
         run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Get current tag
         id: tag
-        run: echo "::set-output name=tag::$(git describe --exact-match --tags $(git log -n1 --pretty='%h'))"
+        run: echo "::set-output name=tag::$(git describe --tags || echo 'NOTAG')"
       - name: Test with environment variables
         run: echo $TAG_NAME - $RELEASE_DATE
         env:
