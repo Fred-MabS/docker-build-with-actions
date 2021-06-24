@@ -8,11 +8,6 @@ on:
         required: true
         default: 'no'
   push:
-    branches:
-      - main
-      - dev
-
-
 
 jobs:
   conditional:
