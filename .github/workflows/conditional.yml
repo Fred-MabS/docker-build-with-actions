@@ -8,11 +8,6 @@ on:
         required: true
         default: 'no'
   push:
-    branches:
-      - main
-      - dev
-
-
 
 jobs:
   conditional:
@@ -23,8 +18,9 @@ jobs:
       - name: Set variables
         id: vars
         run: |
-          if [ '${{ github.event.inputs.push_images }}' == 'yes' ] ||
-            ( [ '${{ github.ref }}' == 'refs/heads/main' ] && [ '${{ github.event_name }}' == 'push' ] )
+          if [ '${{ github.event.inputs.push_images }}' == 'yes' ]
+            || ( [ '${{ github.ref }}' == 'refs/heads/main' ] && [ '${{ github.event_name }}' == 'push' ] )
+            || ( [ '${{ github.ref }}' == 'refs/heads/dev' ] && [ '${{ github.event_name }}' == 'push' ] )
           then
             echo "::set-output name=push::yes"
           else
