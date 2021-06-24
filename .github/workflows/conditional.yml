@@ -26,8 +26,10 @@ jobs:
           if [ '${{ github.event.inputs.push_images }}' == 'yes' ] ||
             ( [ '${{ github.ref }}' == 'refs/heads/main' ] && [ '${{ github.event_name }}' == 'push' ] )
           then
+            echo "output=yes"
             echo "::set-output name=push::yes"
           else
+            echo "output=no"
             echo "::set-output name=push::no"
           fi
         
