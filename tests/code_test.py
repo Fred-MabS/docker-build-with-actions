@@ -6,4 +6,4 @@ def some_fixture():
 
 
 def test_one(some_fixture):
-    assert some_fixture == 120
+    assert some_fixture == 12
