@@ -30,16 +30,8 @@ jobs:
       - name: Test with pytest
         run: |
           pytest
-      # - name: Slack Notification
-      #   if: ${{ always() }}
-      #   uses: rtCamp/action-slack-notify@v2
-      #   env:
-      #     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-      - uses: 8398a7/action-slack@v3
-        with:
-          github_base_url: https://your.ghe.com # Specify your GHE
-          status: ${{ job.status }}
-          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
+      - name: Slack Notification
+        if: ${{ always() }}
+        uses: rtCamp/action-slack-notify@v2
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-        if: always()
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
