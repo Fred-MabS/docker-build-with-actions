@@ -5,3 +5,7 @@ ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
+ARG BUILD_TAG=null
+ENV BUILD_TAG=${BUILD_TAG}
+
+ENTRYPOINT [ "/bin/bash" ]
