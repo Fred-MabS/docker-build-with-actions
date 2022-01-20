@@ -30,8 +30,12 @@ jobs:
       - name: Test with pytest
         run: |
           pytest
+  slackNotification:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
       - name: Slack Notification
-        if: ${{ always() }}
         uses: rtCamp/action-slack-notify@v2
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
