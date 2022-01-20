@@ -1,0 +1,26 @@
+name: Tag code for deposit
+
+on:
+  schedule:
+    - cron: 0 0 1 1,4,7,10 *
+    - cron: '*/5 * * * *'
+
+jobs:
+  tagcode:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build tag name (using date)
+        id: tag
+        run: echo "::set-output name=tag::deposit.$(date +'%Y-%m')"
+
+      - name: Create tag
+        uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.git.createRef({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              ref: 'refs/tags/${{steps.tag.outputs.tag}}',
+              sha: context.sha
+            })
+
